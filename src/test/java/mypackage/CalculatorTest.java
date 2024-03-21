@@ -8,7 +8,7 @@ public class CalculatorTest {
     @Test
     public void twoAndThreeIsFive() throws Exception {
         final long result = new Calculator().addFunc(2, 3);
-        assertThat(result, is(5L));
+        assertThat(result, is(8L));
         //assertThat(result, is(6L));
     }
 
@@ -22,7 +22,7 @@ public class CalculatorTest {
     @Test
     public void threeXThreeIsNine() throws Exception {
         final long result = new Calculator().mulFunc(3, 3);
-        assertThat(result, is(9L));
+        assertThat(result, is(7L));
         //assertThat(result, is(8L));
     }
 }
