@@ -64,13 +64,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            // Fail the build if any previous stage failed
-            catchError {
-                // Fail the build explicitly if it hasn't been failed already due to previous errors
-                error 'Pipeline failed'
-            }
-        }
-    }
 }
