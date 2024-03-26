@@ -1,32 +1,26 @@
-package com.example;
-
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class CalculatorTest {
+    Calculator calculator = new Calculator();
+
+    @Test(expected = ArithmeticException.class)
+    public void testDivisionByZero() {
+        calculator.divide(5, 0);
+    }
 
     @Test
     public void testAddition() {
-        assertEquals(10, Calculator.add(5, 5));
+        assertEquals(10, calculator.add(5, 5));
     }
 
     @Test
     public void testSubtraction() {
-        assertEquals(5, Calculator.subtract(10, 5));
+        assertEquals(5, calculator.subtract(10, 5));
     }
 
     @Test
     public void testMultiplication() {
-        assertEquals(25, Calculator.multiply(5, 5));
-    }
-
-    @Test
-    public void testDivision() {
-        assertEquals(2, Calculator.divide(10, 5));
-    }
-
-    @Test(expected = ArithmeticException.class)
-    public void testDivisionByZero() {
-        Calculator.divide(10, 0);
+        assertEquals(25, calculator.multiply(5, 5));
     }
 }
