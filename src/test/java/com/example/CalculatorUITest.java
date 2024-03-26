@@ -21,7 +21,7 @@ public class CalculatorUITest {
 
     @Test
     public void testAddition() {
-        driver.get("http://localhost:8080/web-calculator/");
+        driver.get("http://192.168.138.114:8081/web-calculator/");
         // Your Selenium UI test code goes here
     }
 
