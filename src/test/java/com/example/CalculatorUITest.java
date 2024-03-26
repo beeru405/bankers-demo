@@ -9,7 +9,7 @@ public class CalculatorUITest {
     @Test
     public void testAddition() {
         WebDriver driver = new ChromeDriver();
-        driver.get("http://localhost:8080/calculator");
+        driver.get("http://192.168.138.114:8081/web-calculator");
 
         // Perform addition operation on UI
         driver.findElement(By.id("num1")).sendKeys("5");
