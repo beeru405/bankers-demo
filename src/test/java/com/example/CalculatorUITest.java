@@ -9,7 +9,7 @@ public class CalculatorUITest {
 
     @Before
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         driver = new ChromeDriver();
         driver.get("http://192.168.138.114:8081/web-calculator");
     }
