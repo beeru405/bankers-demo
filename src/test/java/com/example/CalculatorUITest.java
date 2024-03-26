@@ -1,30 +1,28 @@
-package com.example;
-
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-import static org.junit.Assert.assertEquals;
-
 public class CalculatorUITest {
+    private WebDriver driver;
 
-    private static WebDriver driver;
-
-    @BeforeClass
-    public static void setup() {
-        WebDriverManager.chromedriver().setup();
+    @Before
+    public void setup() {
+        System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
         driver = new ChromeDriver();
+        driver.get("http://192.168.138.114:8081/web-calculator");
     }
 
     @Test
-    public void testAddition() {
-        driver.get("http://192.168.138.114:8081/web-calculator/");
-        // Your Selenium UI test code goes here
+    public void testCalculatorUI() {
+        // Add your UI testing code here
     }
 
-    // Add more test methods for other calculator operations
-
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
