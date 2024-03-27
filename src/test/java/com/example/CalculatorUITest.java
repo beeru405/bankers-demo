@@ -1,28 +1,34 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import static org.junit.Assert.*;
 
 public class CalculatorUITest {
+
     private WebDriver driver;
 
     @Before
-    public void setup() {
-        System.setProperty("webdriver.chrome.driver", "/home/devops/.wdm/drivers/chromedriver/linux64/123.0.6312.58/chromedriver-linux64/chromedriver");
-        driver = new ChromeDriver();
-        driver.get("http://192.168.138.114:8081/web-calculator");
+    public void setUp() {
+        // Set the path to GeckoDriver executable
+        System.setProperty("webdriver.gecko.driver", "/usr/local/bin/");
+        
+        // Initialize FirefoxDriver
+        driver = new FirefoxDriver();
+        
+        // Maximize the browser window
+        driver.manage().window().maximize();
     }
 
     @Test
     public void testCalculatorUI() {
-        // Add your UI testing code here
+        // Your test logic here
     }
 
     @After
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
+        // Close the browser
+        driver.quit();
     }
 }
