@@ -12,7 +12,7 @@ public class CalculatorUITest {
     @Before
     public void setUp() {
         // Set the path to GeckoDriver executable
-        System.setProperty("webdriver.gecko.driver", "/usr/local/bin/");
+        System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
         
         // Initialize FirefoxDriver
         driver = new FirefoxDriver();
