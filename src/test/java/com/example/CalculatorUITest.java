@@ -1,34 +1,37 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class CalculatorUITest {
-
     private WebDriver driver;
 
     @Before
     public void setUp() {
-        // Set the path to GeckoDriver executable
+        // Specify the path to the GeckoDriver executable
         System.setProperty("webdriver.gecko.driver", "/usr/local/bin/geckodriver");
-        
-        // Initialize FirefoxDriver
-        driver = new FirefoxDriver();
-        
-        // Maximize the browser window
-        driver.manage().window().maximize();
-    }
 
-    @Test
-    public void testCalculatorUI() {
-        // Your test logic here
+        // Optional: Specify any additional options for GeckoDriver
+        FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("--headless"); // Example: Run Firefox in headless mode
+        // Add any other desired options...
+
+        // Initialize FirefoxDriver with options
+        driver = new FirefoxDriver(options);
     }
 
     @After
     public void tearDown() {
-        // Close the browser
-        driver.quit();
+        // Close the WebDriver instance after the test completes
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
+    @Test
+    public void testCalculatorUI() {
+        // Your test code here
+        // Example:
+        driver.get("https://www.google.com");
+        // Perform UI interactions and assertions
     }
 }
