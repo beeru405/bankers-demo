@@ -1,22 +1,29 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CalculatorUITest {
+
     private WebDriver driver;
 
     @Before
-    public void setup() {
+    public void setUp() {
+        // Set up WebDriver (ChromeDriver in this case)
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         driver = new ChromeDriver();
-        driver.get("http://192.168.138.114:8081/webapp-0.2/");
+        // Maximize browser window
+        driver.manage().window().maximize();
+        // Navigate to the calculator web page
+        driver.get("https://192.168.138.114:8081/webapp-2.0/");
     }
 
     @Test
     public void testCalculatorUI() {
-        // Add your UI testing code here
+        // Find input elements for calculator
         WebElement num1Input = driver.findElement(By.id("num1"));
         WebElement num2Input = driver.findElement(By.id("num2"));
         WebElement addButton = driver.findElement(By.id("addButton"));
@@ -36,6 +43,7 @@ public class CalculatorUITest {
 
     @After
     public void tearDown() {
+        // Close the WebDriver session
         if (driver != null) {
             driver.quit();
         }
