@@ -17,6 +17,21 @@ public class CalculatorUITest {
     @Test
     public void testCalculatorUI() {
         // Add your UI testing code here
+        WebElement num1Input = driver.findElement(By.id("num1"));
+        WebElement num2Input = driver.findElement(By.id("num2"));
+        WebElement addButton = driver.findElement(By.id("addButton"));
+        WebElement resultElement = driver.findElement(By.id("result"));
+
+        // Enter numbers into the input fields
+        num1Input.sendKeys("10");
+        num2Input.sendKeys("5");
+
+        // Click the add button
+        addButton.click();
+
+        // Verify the result
+        String result = resultElement.getText();
+        assert(result.equals("15")); // Asserting the result to be 15
     }
 
     @After
